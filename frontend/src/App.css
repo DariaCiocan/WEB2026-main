@@ -344,7 +344,7 @@
 .toast-success {
   background: var(--red);
   border-color: rgba(144, 60, 255, 0.3);
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--red);
   color: var(--text);
 }
 

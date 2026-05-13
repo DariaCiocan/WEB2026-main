@@ -1,0 +1,4 @@
+node_modules/
+.env
+.env.local
+# tasks.json NU trebuie exclus — contine datele aplicatiei

@@ -1,0 +1,78 @@
+/* src/index.css
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Fisier de stiluri globale / reset CSS.
+ * Importat o singura data in main.jsx, se aplica intregii aplicatii.
+ *
+ * Sectiuni:
+ *  1. Box model reset  — elimina padding/margin implicit al browserului
+ *  2. Design tokens    — variabile CSS reutilizabile (:root)
+ *  3. Stiluri de baza  — body, html, #root
+ *  4. Elemente comune  — butoane, liste
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ── 1. Box model reset ──────────────────────────────────────────────────── */
+/* Toate elementele calculeaza dimensiunile inclusiv padding si border       */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 2. Design tokens (variabile CSS) ────────────────────────────────────── */
+/* Definite o singura data, folosite in intregul proiect prin var(--nume).   */
+/* Schimbarea unei valori aici se propaga automat peste tot.                 */
+:root {
+  /* Culori de fundal (de la inchis la mai deschis) */
+  --bg:           #040404;   /* fundalul principal al paginii */
+  --surface:      #111111;   /* carduri, inputuri */
+  --surface-2:    #181818;   /* toast, elemente suprapuse */
+
+  /* Culori de border */
+  --border:       #222222;   /* border normal */
+  --border-2:     #2e2e2e;   /* border la hover */
+
+  /* Culoarea accent (verde-galben caracteristic designului) */
+  --accent:       #b8ff3c;
+  --accent-dim:   #8fcc1e;   /* varianta mai inchisa pentru badge-uri */
+
+  /* Culori de text */
+  --text:         #efefef;   /* text principal */
+  --text-muted:   #555;      /* text secundar, placeholder */
+  --text-dim:     #333;      /* text taskuri finalizate (taiat) */
+
+  /* Culoare de eroare */
+  --red:          #ff4040;
+
+  /* Raza colturilor pentru carduri si inputuri */
+  --radius:       8px;
+
+  /* Familii de fonturi */
+  --font-display: 'Cabinet Grotesk', sans-serif; /* titluri mari */
+  --font-body:    'Cabinet Grotesk', sans-serif; /* text normal */
+  --font-mono:    'Courier New', monospace;      /* etichete, coduri */
+}
+
+/* ── 3. Stiluri de baza ──────────────────────────────────────────────────── */
+/* html, body si #root ocupa intreaga inaltime a ferestrei                   */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  /* Imbunatateste claritatea textului pe ecrane retina */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 4. Elemente comune ──────────────────────────────────────────────────── */
+
+/* Butonele mostenesc fontul parintelui (implicit nu mostenesc) */
+button { cursor: pointer; font-family: inherit; }
+
+/* Listele nu au bullet points implicit */
+ul { list-style: none; }

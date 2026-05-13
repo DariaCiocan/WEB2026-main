@@ -1,0 +1,363 @@
+/* src/App.css — Stiluri componente */
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+.page-wrapper {
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 72px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: var(--text);
+}
+
+.accent { color: var(--accent); }
+
+/* Statistici */
+.stats-row {
+  display: flex;
+  gap: 28px;
+  margin-top: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-item strong {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.stat-item span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── Formular adaugare ───────────────────────────────────────────────────── */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Animatie shake la eroare */
+.shake {
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  60%       { transform: translateX(8px); }
+}
+
+.task-input {
+  flex: 1;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 13px 18px;
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.task-input::placeholder { color: var(--text-muted); }
+
+.task-input:focus        { border-color: var(--accent); }
+.task-input.input-error  { border-color: var(--red); }
+
+.add-btn {
+  background: var(--accent);
+  color: #0a0a0a;
+  border: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 13px 24px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  transition: background 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.add-btn:hover  { background: #caff45; }
+.add-btn:active { transform: scale(0.97); }
+
+.error-msg {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--red);
+  padding-left: 4px;
+}
+
+/* ── Filtre ──────────────────────────────────────────────────────────────── */
+.filters {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 30px;
+  transition: all 0.15s;
+}
+
+.filter-btn:hover  { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0a0a0a;
+}
+
+/* ── Lista taskuri ───────────────────────────────────────────────────────── */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Task Card ───────────────────────────────────────────────────────────── */
+.task-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  transition: border-color 0.15s, opacity 0.2s;
+  animation: slide-in 0.25s ease;
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.task-card:hover       { border-color: var(--border-2); }
+.task-card.task-done   { opacity: 0.5; }
+
+/* Buton de bifare */
+.check-btn {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-2);
+  background: none;
+  color: transparent;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.check-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.task-done .check-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0a0a0a;
+  cursor: default;
+}
+
+/* Continut text */
+.task-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.task-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  word-break: break-word;
+  transition: color 0.2s;
+}
+
+.task-done .task-text {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+.task-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Badge status */
+.task-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 30px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-active {
+  border: 1px solid var(--border-2);
+  color: var(--text-muted);
+}
+
+.badge-done {
+  background: rgba(184, 255, 60, 0.1);
+  border: 1px solid rgba(184, 255, 60, 0.25);
+  color: var(--accent-dim);
+}
+
+/* Buton stergere */
+.delete-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.delete-btn:hover {
+  color: var(--red);
+  background: rgba(255, 64, 64, 0.1);
+}
+
+/* ── Stari speciale ──────────────────────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.empty-state p {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.loading-state {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px;
+  letter-spacing: 1px;
+}
+
+/* ── Toast ───────────────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  max-width: 300px;
+  z-index: 999;
+  animation: toast-in 0.2s ease;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.toast-success {
+  background: var(--surface-2);
+  border-color: rgba(184, 255, 60, 0.3);
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+}
+
+.toast-error {
+  background: var(--surface-2);
+  border-color: rgba(255, 64, 64, 0.3);
+  border-left: 3px solid var(--red);
+  color: var(--text);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 500px) {
+  .page-wrapper { padding: 32px 16px 60px; }
+  .page-title   { letter-spacing: -2px; }
+  .task-badge   { display: none; }
+}

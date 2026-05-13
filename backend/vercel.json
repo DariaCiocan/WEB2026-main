@@ -1,0 +1,25 @@
+{
+  "_comment": "Configurare Vercel pentru backend-ul Node.js/Express",
+  "_docs": "https://vercel.com/docs/functions/serverless-functions",
+
+  "version": 2,
+  "name": "todo-list-backend",
+
+  "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "src/server.js"
+    }
+  ],
+
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

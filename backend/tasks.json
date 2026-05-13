@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1777819457081,
+    "text": "Semnare contract",
+    "priority": "Mediu",
+    "deadline": "2026-05-11",
+    "deadlineTime": "12:00",
+    "completed": true,
+    "createdAt": "2026-05-03T14:44:17.081Z",
+    "completedAt": "2026-05-03T14:44:33.100Z"
+  },
+  {
+    "id": 1777819554350,
+    "text": "Meeting angajati",
+    "priority": "Scazut",
+    "deadline": "2026-11-05",
+    "deadlineTime": "13:00",
+    "completed": false,
+    "createdAt": "2026-05-03T14:45:54.350Z"
+  },
+  {
+    "id": 1778605917888,
+    "text": "Cumparaturi",
+    "priority": "Scazut",
+    "deadline": "2026-05-14",
+    "deadlineTime": null,
+    "completed": false,
+    "createdAt": "2026-05-12T17:11:57.888Z"
+  }
+]
